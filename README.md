@@ -1,6 +1,8 @@
 # Javascript Refresher
 
-#### Data Types
+======
+
+## Data Types
 
 * _String_ - Text values, wrapped with single/double quotes. Can also be created with backticks (\`).
 > "Hello World", 'Max', \`Hi there\`
@@ -21,9 +23,9 @@
 * _let_ - can be reassigned
 * _const_ - permanent/constant/cannot be change
 
-------
+======
 
-#### Operators
+## Operators
 
 + **\*** : Mathematical operator for multiply
 + **\/** : Mathematical operator for division
@@ -37,3 +39,34 @@
 + **<** : Less than
 + **>=** : Greater than or equals to
 + **<=** : Less than or equals to
+
+## Functions
+
+======
+
+Regular function declaration:
+
+```javascript
+function greetUser(username, message) { }
+```
+
+Function with parameters:
+```javascript
+function greetUser(username, message) { }
+```
+
+Function with parameters with default value:
+```javascript
+function greetUser(username, message = "Hello") { }
+```
+
+Function that returns a value:
+```javascript
+function createGreetings(username, message) {
+    return username + " " + message;
+}
+
+console.log(createGreetings("Fisherman", "Hello!"));
+const greeting = createGreetings("Fisherman", "Hello!");
+console.log(greeting);
+```
