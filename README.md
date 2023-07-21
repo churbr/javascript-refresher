@@ -25,15 +25,15 @@
 
 #### Operators
 
- **\*** : Mathematical operator for multiply
- **\/** : Mathematical operator for division
- **\-** : Mathematical operator for subtraction
- **\+** : Mathematical operator for addition, can also be used for string concatenation.
++ **\*** : Mathematical operator for multiply
++ **\/** : Mathematical operator for division
++ **\-** : Mathematical operator for subtraction
++ **\+** : Mathematical operator for addition, can also be used for string concatenation.
  > "Hello " + "World", output is: Hello World
 
 **Operators used in conjunction with if() statements:**
-**===** : Checking for equality. Returns a boolean value
-**>** : Greater than
-**<** : Less than
-**>=** : Greater than or equals to
-**<=** : Less than or equals to
++ **===** : Checking for equality. Returns a boolean value
++ **>** : Greater than
++ **<** : Less than
++ **>=** : Greater than or equals to
++ **<=** : Less than or equals to
