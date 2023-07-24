@@ -1,6 +1,6 @@
 # Javascript Refresher
 
-## Data Types
+## 1) Data Types
 
 * _String_ - Text values, wrapped with single/double quotes. Can also be created with backticks (\`).
 ```text
@@ -14,7 +14,7 @@
 ```
 <br />
 
-* _Boolean_ - A simple yes/no vlaue type. Typically used in conditions.
+* _Boolean_ - A simple yes/no value type. Typically used in conditions.
 ```javascript
 true/false
 ```
@@ -26,7 +26,7 @@ true/false
 <br />
 <br />
 
-* _Object_ - can be used to group multiple values together
+* _Object_ - can be used to group different values together (e.g: _Fullname(string), age(number), birthday(date), etc..._). And are often used to represent entities or real-world objects. Objects are unordered collections of key-value pairs. Each key (property/attribute) is unique and acts as an identifier for its associated value. 
 
 ```javascript
 const user = {
@@ -68,14 +68,13 @@ const object = new User('Friday');
 object.greet();
 ```
 
-###### When declaring variables, you have 2 types:
+When declaring variables, you have 2 types:
 * _let_ - can be reassigned
 * _const_ - permanent/constant/cannot be change
----
 <br />
 <br />
 
-## Operators
+## 2) Operators
 
 + **\*** : Mathematical operator for multiply
 + **\/** : Mathematical operator for division
@@ -89,11 +88,10 @@ object.greet();
 + **<** : Less than
 + **>=** : Greater than or equals to
 + **<=** : Less than or equals to
----
 <br />
 <br />
 
-## Functions
+## 3) Functions
 
 Regular function declaration:
 
@@ -122,7 +120,7 @@ const greeting = createGreetings("Fisherman", "Hello!");
 console.log(greeting);
 ```
 
-###### You can also create arrow functions, a syntax that is popular when you are dealing with anonymous function. A function that doesn't have a name
+**You can also create arrow functions, a syntax that is popular when you are dealing with anonymous function. A function that doesn't have a name**
 
 ```javascript
 () => {
@@ -189,3 +187,49 @@ number => ({ age: number }); // Wrapping the object in extra parentheses
 ```
 
 _By wrapping the object and its curly braces with an extra pair of parentheses, JavaScript understands that the curly braces are not there to define a function body but instead to create an object. Hence that object then gets returned_
+<br />
+<br />
+
+## 4) Arrays & Array Methods
+
+Arrays are ordered collections of elements. Each element in an array has a numerical index, starting from 0, that determines its position in the array.\
+\
+Typically used to store a list of homogeneous data elements, meaning all elements have the same data type (e.g., _an array of numbers, strings, or objects of the same type_). Are commonly used for tasks that involve a collection of similar data, such as lists and stacks.
+
+```javascript
+// Array index        0           1            2
+const usernames = ['friday', 'fisherman', 'economist'];
+// console.log(usernames[2]); // economist
+// console.log(usernames);
+
+usernames.push('capitalist');
+
+// console.log(usernames);
+
+
+/**
+ * findIndex() returns the index of the array value provided, -1 if found nothing
+ * It takes an anonymous function
+ * And this anonymous is executed for every item/element of the array
+ **/
+
+// const index = usernames.findIndex((item) => {
+//    return item === 'fisherman'; // 1
+// });
+// Shorter code version of this below...
+
+const index = usernames.findIndex(item => item === 'fisherman');
+
+console.log(index);
+
+/**
+ * .map() transforms an array to another array
+ **/
+
+const newUsernamesStr = usernames.map(username => username + '!'); // Adds exclamation mark on every string value of array, e.g: 'fisherman!'
+console.log('Old usernames: ', usernames);
+console.log('Transformed username strings: ', newUsernamesStr);
+
+const usernamesToObj = usernames.map(username => ({ text: username })); // Converts every element of the array to object
+console.log('Transformed to object: ',  usernamesToObj);
+```
