@@ -1,6 +1,6 @@
 # Javascript Refresher
 
-## 1) Data Types
+### 1) Data Types
 
 * _String_ - Text values, wrapped with single/double quotes. Can also be created with backticks (\`).
 ```text
@@ -74,7 +74,7 @@ When declaring variables, you have 2 types:
 <br />
 <br />
 
-## 2) Operators
+### 2) Operators
 
 + **\*** : Mathematical operator for multiply
 + **\/** : Mathematical operator for division
@@ -91,7 +91,7 @@ When declaring variables, you have 2 types:
 <br />
 <br />
 
-## 3) Functions
+### 3) Functions
 
 Regular function declaration:
 
@@ -120,7 +120,7 @@ const greeting = createGreetings("Fisherman", "Hello!");
 console.log(greeting);
 ```
 
-**You can also create arrow functions, a syntax that is popular when you are dealing with anonymous function. A function that doesn't have a name**
+You can also create **arrow functions**, a syntax that is popular when you are dealing with <span style="color: green; font-weight: bold">anonymous function</span>, a function that doesn't have a name.
 
 ```javascript
 () => {
@@ -132,9 +132,7 @@ export default () => {
 }
 ```
 
-_If your arrow functions takes exactly one parameter, you may omit the wrapping parentheses_
-
-Instead of:
+If your arrow functions takes exactly one parameter, you may omit the wrapping parentheses. Instead of:
 ```javascript
 (userName) => {
     // code here
@@ -166,9 +164,7 @@ fullName, age => { ... } // This is INVALID
 (fullName, age) => { ... } // This is CORRECT
 ```
 
-If your arrow function contains no other logic but a return statement, you may omit the curly braces and the return keyword.
-
-Instead of:
+If your arrow function contains no other logic but a return statement, you may omit the curly braces and the return keyword. Instead of:
 ```javascript
 number => { 
   return number * 3;
@@ -180,8 +176,7 @@ You could write:
 number => number * 3;
 ```
 
-But if you're returning an object, you can do this:
-
+But if you're returning an object:
 ```javascript
 number => ({ age: number }); // Wrapping the object in extra parentheses
 ```
@@ -190,7 +185,7 @@ _By wrapping the object and its curly braces with an extra pair of parentheses, 
 <br />
 <br />
 
-## 4) Arrays & Array Methods
+### 4) Arrays & Array Methods
 
 Arrays are ordered collections of elements. Each element in an array has a numerical index, starting from 0, that determines its position in the array.\
 \
@@ -232,4 +227,50 @@ console.log('Transformed username strings: ', newUsernamesStr);
 
 const usernamesToObj = usernames.map(username => ({ text: username })); // Converts every element of the array to object
 console.log('Transformed to object: ',  usernamesToObj);
+```
+<br />
+<br />
+
+### 5) Destructuring
+
+Destructuring is another way of extracting values from an array and properties from objects, making it more readable and easy to manage.
+
+```javascript
+/**
+ * Extracting values from an array
+ * In this way, wherever you position a variable on the left side
+ * Its value will be equal to it's equivalent positon of data in the right
+ * And you can name any variable you want, because they are extracted by position
+ **/
+const [color1, color2, color3] = ['Red', 'Green', 'Blue'];
+console.log('Colors: ', color1, color2, color3); // Colors:  Red Green Blue
+
+// const [color1, color2, color3] = ['Red'];
+// console.log('Colors: ', color1, color2, color3); // Colors:  Red undefined undefined
+
+/**
+ * For objects, its stricter.
+ * You have to name the variable the same as property name in the object
+ * Because in objects, data are extracted by property
+ * In arrays, data is extracted by position
+ **/
+
+const userInfo = {
+    username: 'fisherman',
+    fullName: 'Bruce Lee',
+    age: 32
+}
+
+// const { username, fullName, age } = userInfo;
+// console.log('Extracted info: ', username, fullName, age);
+
+/**
+ * You could use an alias
+ * Below is an example of creating an alias for username property
+ * We set the alias for username as id
+ * If you try to print username in console, you will get a reference error
+ **/
+
+const { username: id, fullName, age } = userInfo;
+console.log('Extracted info: ', id, fullName, age);
 ```
