@@ -235,37 +235,34 @@ console.log('Transformed to object: ',  usernamesToObj);
 
 Destructuring is another way of extracting values from an array and properties from objects, making it more readable and easy to manage.
 
+###### Array Destructuring
+<sub>Extracting values from an array. Wherever you position a variable on the left side. Its value will be equal to it's equivalent positon of data in the right. And you can name any variable you want when destructuring an array, because they are extracted by position</sub>
+
 ```javascript
-/**
- * Extracting values from an array
- * In this way, wherever you position a variable on the left side
- * Its value will be equal to it's equivalent positon of data in the right
- * And you can name any variable you want, because they are extracted by position
- **/
 const [color1, color2, color3] = ['Red', 'Green', 'Blue'];
 console.log('Colors: ', color1, color2, color3); // Colors:  Red Green Blue
 
 // const [color1, color2, color3] = ['Red'];
-// console.log('Colors: ', color1, color2, color3); // Colors:  Red undefined undefined
+// console.log('Colors: ', color1, color2, color3);
+// Output:
+// Colors:  Red undefined undefined
+```
 
-/**
- * For objects, its stricter.
- * You have to name the variable the same as property name in the object
- * Because in objects, data are extracted by property
- * In arrays, data is extracted by position
- **/
+###### Object Destructuring
+<sub>Destructuring objects is stricter. You have to name the variable the same as property names within the object. Because in objects, data are extracted by property. Unlike in arrays, data is extracted by position</sub>
 
+```javascript
 const userInfo = {
     username: 'fisherman',
     fullName: 'Bruce Lee',
     age: 32
 }
 
-// const { username, fullName, age } = userInfo;
-// console.log('Extracted info: ', username, fullName, age);
+const { username, fullName, age } = userInfo;
+console.log('Extracted info: ', username, fullName, age);
 
 /**
- * You could use an alias
+ * You can use an alias
  * Below is an example of creating an alias for username property
  * We set the alias for username as id
  * If you try to print username in console, you will get a reference error
@@ -273,4 +270,18 @@ const userInfo = {
 
 const { username: id, fullName, age } = userInfo;
 console.log('Extracted info: ', id, fullName, age);
+```
+
+###### Destructuring in function parameters
+```javascript
+function storeInfo({ name, age }) {
+    console.log(`Hello ${name}, age of ${age}`);
+}
+
+const info = {
+    name: 'Bruce',
+    age: 32
+}
+
+storeInfo(info);
 ```

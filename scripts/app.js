@@ -110,3 +110,18 @@
 // const { username: id, fullName, age } = userInfo;
 // console.log('Extracted info: ', id, fullName, age);
 // You'll get a reference error if you tried to print `username` in console
+
+/**
+ * Destructuring in function parameters
+ * **/
+
+function storeInfo({ name, age }) {
+    console.log(`Hello ${name}, age of ${age}`);
+}
+
+const info = {
+    name: 'Bruce',
+    age: 32
+}
+
+storeInfo(info);
