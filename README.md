@@ -365,3 +365,61 @@ const product = multiply(8, 1, 2, 3);
 
 console.log('Product: ', product); // Result: [8, 16, 24]
 ```
+<br />
+<br />
+
+
+### Control Structures
+
+###### if statement
+```javascript
+const password = prompt("Enter password:");
+
+if(password === "Hello") {
+    console.log("Hello is correct!")
+}else if(password === "hello") {
+    console.log("hello is OK!")
+}else {
+    console.log("Access denied!");
+}
+```
+
+###### For... in
+_For ... in_ loops through property names of an object & index of an array.
+
+In order to get the values, you have to refer the original object and use **[ ]** to define the properties of an object/indexes of the array
+
+```javascript
+const posts = {
+    id: 1,
+    title: 'Post Title',
+    body: 'Post Body'
+}
+
+// for ... in object
+for(let post in posts) {
+    console.log(post); // id, title, body
+    console.log(posts[post]); // 1, Post Title, Post Body
+}
+
+const numbers = ['One', 'Two', 'Three', 'Four'];
+
+// for ... in array
+for(let number in numbers) {
+    console.log(number); // 0, 1, 2, 3
+    console.log(numbers[number]); // One, Two, Three, Four
+}
+```
+
+###### For... of
+_For ... of_ is for arrays only (iterable), not for objects
+```javascript
+const numbers = ['One', 'Two', 'Three', 'Four'];
+
+for(let number of numbers) {
+    console.log(number); // One, Two, Three, Four
+}
+```
+<br />
+<br />
+

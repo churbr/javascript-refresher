@@ -175,29 +175,65 @@
 // While spread operator unpacks an array into separate arguments
 // the rest operator collects all the remaining elements into an array
 
-function listTodos(...todos) { // Here, we get the rest of arguments, using rest operator
-    const todoList = todos.map(todo => {
-        return todo;
-    });
+// function listTodos(...todos) { // Here, we get the rest of arguments, using rest operator
+//     const todoList = todos.map(todo => {
+//         return todo;
+//     });
 
-    console.log(todoList);
-}
+//     console.log(todoList);
+// }
 
-listTodos('Exercise', 'Workout', 'Reading', 'Working');
+// listTodos('Exercise', 'Workout', 'Reading', 'Working');
 
 // Another example:
 
-function multiply(multiplier, ...rest) {
-    return rest.map((element) => {
-        return multiplier * element; // Multiply each element by multiplier 8 starting from 2nd argument 1
-    });
-}
+// function multiply(multiplier, ...rest) {
+//     return rest.map((element) => {
+//         return multiplier * element; // Multiply each element by multiplier 8 starting from 2nd argument 1
+//     });
+// }
 
 // multiplier = 8
 // ...rest = 1, 2, 3, and so on
-const product = multiply(8, 1, 2, 3);
+// const product = multiply(8, 1, 2, 3);
 
-console.log('Product: ', product); // Result: [8, 16, 24]
+// console.log('Product: ', product); // Result: [8, 16, 24]
 
 // spread operator unpacks elements
 // rest parameter packs elements
+
+// const password = prompt("Enter password:");
+
+// if(password === "Hello") {
+//     console.log("Hello is correct!")
+// }else if(password === "hello") {
+//     console.log("hello is OK!")
+// }else {
+//     console.log("Access denied!");
+// }
+
+// Control Structures
+
+// For ... in - loops through property names of an object & index of an array
+// For ... of - Arrays only (iterable), not for objects
+const posts = {
+    id: 1,
+    title: 'Post Title',
+    body: 'Post Body'
+}
+
+for(let post in posts) {
+    console.log(post); // id, title, body
+    console.log(posts[post]); // 1, Post Title, Post Body
+}
+
+const numbers = ['One', 'Two', 'Three', 'Four'];
+
+for(let number in numbers) {
+    console.log(number); // 0, 1, 2, 3
+    console.log(numbers[number]); // One, Two, Three, Four
+}
+
+for(let number of numbers) {
+    console.log(number);
+}
