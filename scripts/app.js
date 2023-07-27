@@ -115,13 +115,89 @@
  * Destructuring in function parameters
  * **/
 
-function storeInfo({ name, age }) {
-    console.log(`Hello ${name}, age of ${age}`);
+// function storeInfo({ name, age }) {
+//     console.log(`Hello ${name}, age of ${age}`);
+// }
+
+// const info = {
+//     name: 'Bruce',
+//     age: 32
+// }
+
+// storeInfo(info);
+
+// ----------------------------------------------------------------------------------
+
+// Spread Operator
+// The spread operator unpacks an array into separate arguments
+
+
+// const fruits = ['Apple', 'Banana'];
+// const newFruit = ['Orange', 'Mango'];
+
+// const allFruits = [fruits, newFruit]; 
+// const spreadFruits = [...fruits, ...newFruit]; // Using spread operator
+
+// console.log(allFruits);
+
+/**
+ * Output is a nested array without using by putting it this way: [fruits, newFruit]
+ * [
+ * 0: [ "Apple", "Banana" ],
+ * 1: ["Orange", "Mango"]
+ * ]
+**/
+
+// console.log(spreadFruits);
+
+/**
+ * Output using spread operator i.e: [...fruits, ...newFruit]
+ * All of values/elements from those arrays are pulled out,
+ * and then added them as stand-alone elements of the array
+ * ['Apple', 'Banana', 'Orange', 'Mango']
+ **/
+
+// Spread Operator on Objects
+
+// const role = {
+//     isAdmin: true   
+// }
+
+// const user = {
+//     name: 'Donnie Yen',
+//     age: 59,
+//     ...role // Here, we pulled out the `isAdmin` property and added to user object
+// }
+
+// console.log('User: ', user); // Output: { name: 'Donnie Yen', age: 59, isAdmin: true }
+
+// Rest Operator
+// While spread operator unpacks an array into separate arguments
+// the rest operator collects all the remaining elements into an array
+
+function listTodos(...todos) { // Here, we get the rest of arguments, using rest operator
+    const todoList = todos.map(todo => {
+        return todo;
+    });
+
+    console.log(todoList);
 }
 
-const info = {
-    name: 'Bruce',
-    age: 32
+listTodos('Exercise', 'Workout', 'Reading', 'Working');
+
+// Another example:
+
+function multiply(multiplier, ...rest) {
+    return rest.map((element) => {
+        return multiplier * element; // Multiply each element by multiplier 8 starting from 2nd argument 1
+    });
 }
 
-storeInfo(info);
+// multiplier = 8
+// ...rest = 1, 2, 3, and so on
+const product = multiply(8, 1, 2, 3);
+
+console.log('Product: ', product); // Result: [8, 16, 24]
+
+// spread operator unpacks elements
+// rest parameter packs elements

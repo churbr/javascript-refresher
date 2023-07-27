@@ -93,6 +93,19 @@ When declaring variables, you have 2 types:
 
 ### 3) Functions
 
+###### Definitions
+- **argument** — An argument is a value passed to a function
+- **parameter** — A Parameter is a variable used in the declaration of a function
+- **iterable** — A collection of something that we can iterate (loop) over. For example, an array or a list
+
+```javascript
+function print(params) {
+  params.forEach(param => console.log(param));
+}
+
+print(['arg1', 'arg2']);
+```
+
 Regular function declaration:
 
 ```javascript
@@ -284,4 +297,71 @@ const info = {
 }
 
 storeInfo(info);
+```
+<br />
+<br />
+
+### 5) Spread Operator
+
+Spread operator (...) three dots, is use to flatten an object or an array. The spread operator unpacks an array into separate arguments
+
+###### Arrays
+
+```javascript
+const fruits = ['Apple', 'Banana'];
+const newFruit = ['Orange', 'Mango'];
+
+const allFruits = [fruits, newFruit]; // Without spread operator
+console.log(allFruits); // Outputs 2 nested array, i.e: [ 0: [ "Apple", "Banana" ], 1: ["Orange", "Mango"] ]
+
+const spreadFruits = [...fruits, ...newFruit]; // Using spread operator
+console.log(spreadFruits); // Outputs flattened array, i.e: ['Apple', 'Banana', 'Orange', 'Mango']
+```
+
+###### Objects
+```javascript
+const role = {
+    isAdmin: true   
+}
+
+const user = {
+    name: 'Donnie Yen',
+    age: 59,
+    ...role // Here, we pulled out the `isAdmin` property and added to user object
+}
+
+console.log('User: ', user); // Output: { name: 'Donnie Yen', age: 59, isAdmin: true }
+```
+<br />
+<br />
+
+### 6) Rest operator
+
+While spread operator unpacks an array into separate arguments, Rest operator collects all the remaining elements into an array. Just remember, spread operator unpacks elements, rest operator packs elements.
+
+```javascript
+function listTodos(...todos) { // Here, we get the rest of arguments, using rest operator
+    const todoList = todos.map(todo => {
+        return todo;
+    });
+
+    console.log(todoList);
+}
+
+listTodos('Exercise', 'Workout', 'Reading', 'Working');
+```
+
+Another example using more than one argument
+```javascript
+function multiply(multiplier, ...rest) {
+    return rest.map((element) => {
+        return multiplier * element; // Multiply each element by multiplier starting from 2nd argument and the rest
+    });
+}
+
+// multiplier = 8
+// ...rest = 1, 2, 3, and so on
+const product = multiply(8, 1, 2, 3);
+
+console.log('Product: ', product); // Result: [8, 16, 24]
 ```
