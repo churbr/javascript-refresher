@@ -216,24 +216,78 @@
 
 // For ... in - loops through property names of an object & index of an array
 // For ... of - Arrays only (iterable), not for objects
-const posts = {
-    id: 1,
-    title: 'Post Title',
-    body: 'Post Body'
+// const posts = {
+//     id: 1,
+//     title: 'Post Title',
+//     body: 'Post Body'
+// }
+
+// for(let post in posts) {
+//     console.log(post); // id, title, body
+//     console.log(posts[post]); // 1, Post Title, Post Body
+// }
+
+// const numbers = ['One', 'Two', 'Three', 'Four'];
+
+// for(let number in numbers) {
+//     console.log(number); // 0, 1, 2, 3
+//     console.log(numbers[number]); // One, Two, Three, Four
+// }
+
+// for(let number of numbers) {
+//     console.log(number);
+// }
+
+// const performOperation = (operation, a, b) => {
+//     return operation(a, b);
+// };
+
+// const add = (a, b) => {
+//     return a + b;
+// }
+
+// const subtract = (a, b) => {
+//     return a - b;
+// }
+
+// const total = performOperation(add, 5, 3);
+// const difference = performOperation(subtract, 10, 2);
+
+// console.log('Total: ', total);
+// console.log('Difference: ', difference);
+
+/**
+ * Note that, if you want to pass a function as argument in a function,
+ * you do not include the open and closing parenthesis.
+ * i.e: runFunc(myFunc)
+ * 
+ * If you want to pass the return value/result of the function,
+ * you include the open and closing parenthesis.
+ * i.e: runFunc(myFunc())
+ **/
+
+// const makeGreeting = () => {
+//     console.log("恭喜發財 (Gōng Xǐ Fā Cái)");
+// }
+
+// setTimeout(makeGreeting, 3000);
+
+// setTimeout(() => {
+//     console.log("恭喜發財 (Gōng Xǐ Fā Cái)");
+// }, 4000);
+
+// setTimeout(function () {
+//     console.log("Hope you get rich!");
+// }, 5000);
+
+function init() {
+    // This function is scoped only within this function
+    // And can't be accessed/call from outside
+    function greet() {
+        console.log("恭喜發財 (Gōng Xǐ Fā Cái)");
+    }
+
+    greet();
 }
 
-for(let post in posts) {
-    console.log(post); // id, title, body
-    console.log(posts[post]); // 1, Post Title, Post Body
-}
-
-const numbers = ['One', 'Two', 'Three', 'Four'];
-
-for(let number in numbers) {
-    console.log(number); // 0, 1, 2, 3
-    console.log(numbers[number]); // One, Two, Three, Four
-}
-
-for(let number of numbers) {
-    console.log(number);
-}
+init(); // You can only access init() function, but not gree()

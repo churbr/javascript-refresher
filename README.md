@@ -105,36 +105,40 @@ function print(params) {
 
 print(['arg1', 'arg2']);
 ```
-
-Regular function declaration:
+<br />
+###### Regular functions
 
 ```javascript
 function greetUser(username, message) { }
 ```
 
-Function with parameters:
 ```javascript
-function greetUser(username, message) { }
-```
-
-Function with parameters with default value:
-```javascript
+// Function with parameters with default value
 function greetUser(username, message = "Hello") { }
 ```
 
-Function that returns a value:
 ```javascript
+// Function that returns a value
 function createGreetings(username, message) {
     return username + " " + message;
 }
 
-console.log(createGreetings("Fisherman", "Hello!"));
 const greeting = createGreetings("Fisherman", "Hello!");
+
+console.log(createGreetings("Fisherman", "Hello!"));
 console.log(greeting);
 ```
+<br />
+###### Arrow functions
 
-You can also create **arrow functions**, a syntax that is popular when you are dealing with <span style="color: green; font-weight: bold">anonymous function</span>, a function that doesn't have a name.
+_Regular arrow function_
+```javascript
+const validateUser = () => {
+    // Code here...
+}
+```
 
+_Anonymous arrow function_
 ```javascript
 () => {
     // Code here...
@@ -144,6 +148,8 @@ export default () => {
     // code here...
 }
 ```
+
+###### Arrow function notes
 
 If your arrow functions takes exactly one parameter, you may omit the wrapping parentheses. Instead of:
 ```javascript
@@ -369,7 +375,7 @@ console.log('Product: ', product); // Result: [8, 16, 24]
 <br />
 
 
-### Control Structures
+### 7) Control Structures
 
 ###### if statement
 ```javascript
@@ -423,3 +429,73 @@ for(let number of numbers) {
 <br />
 <br />
 
+### 7) More on Functions
+
+###### Function as arguments
+
+Note that, when you want to pass a function in a function as argument, you do not include the open and closing parenthesis **( )**.
+
+When you include the parenthesis after the function name, it invokes the function and passes the return value of the function as an argument, rather than passing the function reference itself.
+
+> _runFunc(myFunc)_
+
+<br />
+
+User-created function with a function as argument:
+```javascript
+const performOperation = (operation, a, b) => {
+    return operation(a, b);
+};
+
+const add = (a, b) => {
+    return a + b;
+}
+
+const subtract = (a, b) => {
+    return a - b;
+}
+
+const total = performOperation(add, 5, 3);
+const difference = performOperation(subtract, 10, 2);
+
+console.log('Total: ', total);
+console.log('Difference: ', difference);
+```
+<br />
+
+Built-in function with function as argument:
+
+```javascript
+const makeGreeting = () => {
+    console.log("恭喜發財 (Gōng Xǐ Fā Cái)");
+}
+
+// Using in advanced-defined function
+setTimeout(makeGreeting, 3000);
+
+// Using anonymous arrow function
+setTimeout(() => {
+    console.log("恭喜發財 (Gōng Xǐ Fā Cái)");
+}, 4000);
+
+// Using anonymous regular function
+setTimeout(function () {
+    console.log("Hope you get rich!");
+}, 5000);
+```
+
+###### Function definition inside a function
+
+```javascript
+function init() {
+    // This function is scoped only within this function
+    // And can't be accessed/call from outside
+    function greet() {
+        console.log("恭喜發財 (Gōng Xǐ Fā Cái)");
+    }
+
+    greet();
+}
+
+init(); // You can only access init() function, but not gree()
+```
