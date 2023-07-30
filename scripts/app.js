@@ -280,14 +280,64 @@
 //     console.log("Hope you get rich!");
 // }, 5000);
 
-function init() {
+// function init() {
     // This function is scoped only within this function
     // And can't be accessed/call from outside
-    function greet() {
-        console.log("恭喜發財 (Gōng Xǐ Fā Cái)");
-    }
+    // function greet() {
+        // console.log("恭喜發財 (Gōng Xǐ Fā Cái)");
+    // }
 
-    greet();
-}
+    // greet();
+// }
 
-init(); // You can only access init() function, but not gree()
+// init(); // You can only access init() function, but not gree()
+
+// let num1 = 5;
+// let num2 = num1;
+// console.log(num1, num2); // 5, 5
+
+// num1 = 10;
+// console.log(num1, num2); // 10, 5
+
+/**
+ * We set num1 = 5, then... we set another variable named num2 = num1
+ * So, expectedly... num2 is also equals to 5. Both num1 & num2 is now equal to 5.
+ * 
+ * Now, we set again num1 = 10
+ * 
+ * Since num2 is set equal to num1. Does that mean num2 is also now equal to 10?
+ * No, num2 is still equal to 5. 
+ * 
+ * So, when we set num2 = num1, this is not permanent.
+ * This is just making num2 = 5 at the time at the time that we declare the variable.
+ * But if we later change num1, it doesn't change num2. This is what happens when we are not using a pointer.
+ **/
+
+// const obj1 = { value: 8 };
+// const obj2 = obj1;
+
+// console.log(obj1, obj2); // {value: 8} {value: 8}
+
+// obj1.value = 88;
+// console.log(obj1, obj2); // {value: 88} {value: 88}
+
+// console.log(obj1 === obj2); // 0x01 === 0x01 : true
+
+// const obj3 = { value: 88 }; // 0x02
+// console.log(obj1 === obj3); // 0x01 === 0x02: false
+
+let a = 10;
+let b = 'Hi';
+
+let c = [1, 2];
+let d = c;
+d.push(3);
+
+console.log(c, d); // [1, 2, 3], [1, 2, 3]
+
+console.log(d === c); // d & c has the same memory address, hence: true
+
+d = [4, 5, 6]; // Now that we set d to a new array values, it will create a new memory address location for the value
+console.log(c, d); // [1, 2, 3], [4, 5, 6]
+
+console.log(d === c);
