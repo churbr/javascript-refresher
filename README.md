@@ -106,6 +106,7 @@ function print(params) {
 print(['arg1', 'arg2']);
 ```
 <br />
+
 ###### Regular functions
 
 ```javascript
@@ -129,6 +130,7 @@ console.log(createGreetings("Fisherman", "Hello!"));
 console.log(greeting);
 ```
 <br />
+
 ###### Arrow functions
 
 _Regular arrow function_
